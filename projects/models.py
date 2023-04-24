@@ -8,10 +8,10 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     owner = models.ForeignKey(
-      USER_MODEL,
-      related_name="projects",
-      on_delete=models.CASCADE,
-      null=True,
+        USER_MODEL,
+        related_name="projects",
+        on_delete=models.CASCADE,
+        null=True,
     )
 
 
