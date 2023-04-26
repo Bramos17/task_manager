@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout,  authenticate
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, SignUpForm
 
@@ -34,14 +34,15 @@ def user_signup(request):
             confirm = form.cleaned_data["password_confirmation"]
             if password == confirm:
                 user = User.objects.create_user(
-                    username=username, password=password
-                )
+                    username=username,
+                    password=password)
                 login(request, user)
                 return redirect("list_projects")
             else:
                 form.add_error(
-                    "password_confirmation", "Passwords don't match"
-                )
+                    "password_confirmation",
+                    "Passwords don't match"
+                    )
     else:
         form = SignUpForm()
         context = {"form": form}

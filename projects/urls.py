@@ -1,8 +1,8 @@
 from django.urls import path
 from projects.views import (
-    list_projects,
-    show_project,
-    Create_project,
+            list_projects,
+            show_project,
+            Create_project,
 )
 
 
