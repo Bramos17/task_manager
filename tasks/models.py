@@ -10,7 +10,7 @@ class Task(models.Model):
         "projects.Project",
         related_name="tasks",
         on_delete=models.CASCADE,
-        null=True
+        null=True,
     )
     assignee = models.ForeignKey(
         "auth.User",
