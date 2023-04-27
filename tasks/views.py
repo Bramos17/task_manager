@@ -68,3 +68,4 @@ def delete_task(request, id):
         return redirect("show_my_tasks")
     context = {"task": task}
     return render(request, "tasks/delete_task.html", context)
+

@@ -9,10 +9,15 @@ class TaskForm(forms.ModelForm):
             "name",
             "start_date",
             "due_date",
+            "is_completed",
             "project",
             "assignee",
             "notes",
         ]
+        widgets = {
+            "is_completed":
+                forms.CheckboxInput(attrs={"class": "form-check-input"}),
+        }
 
 
 class AddNoteForm(forms.ModelForm):

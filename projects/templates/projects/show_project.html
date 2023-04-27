@@ -25,7 +25,9 @@
                     <tbody>
                         {% for task in show_project.tasks.all %}
                             <tr>
-                                <td>{{ task.name }}</td>
+                                <td>
+                                    <a href="{% url 'task_detail' task.id %}">{{ task.name }}</a>
+                                </td>
                                 <td>{{ task.assignee }}</td>
                                 <td>{{ task.start_date }}</td>
                                 <td>{{ task.due_date }}</td>
