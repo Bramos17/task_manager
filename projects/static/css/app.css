@@ -98,6 +98,21 @@ a {
   padding: 0;
   text-decoration: none;}
 
+a:link {
+  color:#0236077F;
+}
+
+a:visited {
+  color: #0236077F;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:active {
+  color: #0236077F;
+}
 .search {
   position:absolute;
   top: 10px;
