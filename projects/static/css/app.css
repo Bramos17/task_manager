@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body, input, textarea, button, select {
+  font-family: 'lato';
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html, body {
+    background: url(https://cdn.wallpapersafari.com/46/78/FkSXUz.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header nav ul {
+  background-color:#5C7599C6;
+  box-sizing: border-box;
+  box-sizing: stretch;
+  list-style: none;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 5;
+  padding: 0 0 0 1em;
+}
+main {
+
+  margin: 100px auto;
+}
+header nav ul li {
+  display: inline-block;
+  margin: 0 1em;
+  padding: 1em 0 1em 0;
+}
+
+header nav ul li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+input {
+  height: 1.5em;
+  margin: 0;
+  padding: .25em .5em;
+  background-color:#5C7599C6;
+  border: 1px solid black;
+}
+
+select {
+  height: 2.5em;
+  background-color:#5C7599C6;
+  border: 1px solid black;
+}
+
+select[multiple] {
+  height: 7.5em;
+  background-color:#5C7599C6;
+  border: 1px solid black;
+}
+
+
+textarea {
+  margin: 0;
+  padding: .25em .5em;
+  background-color:#5C7599C6;
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+}
+
+label {
+  font-style: bold italic;
+
+}
+p a {
+    font-family: 'lato';
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+a {
+  font-family: 'lato';
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;}
+
+.helptext {
+  display: block;
+  font-size: 80%;
+}
+
+.login-form,
+.signup-form {
+  background-color:#5C7599C6;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  max-width: 400px;
+  padding: 2em;
+}
+
+.task-form,
+.add-note,
+.project-form {
+  background-color: #5C7599C6;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  max-width: 600px;
+  padding: 2em;
+}
+
+.task-form h1,
+.search_results h1,
+.add-note h1,
+.login-form h1,
+.signup-form h1,
+.project-list h1,
+.project-form h1,
+.project-detail h1 {
+  margin-top: 0;
+}
+
+
+.project-detail h2 {
+  margin-top: 2em;
+}
+
+.task-form p,
+.add-note p,
+.login-form p,
+.signup-form p,
+.project-form p {
+  display: grid;
+  align-items: center;
+  column-gap: 10px;
+  grid-template-columns: 100px 1fr;
+}
+
+
+.task-form p .helptext,
+.login-form p .helptext,
+.signup-form p .helptext,
+.project-form p .helptext {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+
+.task-form button,
+.search button,
+.my-tasks-list button,
+.login-form button,
+.signup-form button,
+.add-note button,
+.project-form button{
+  padding: 0.25em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  border-radius: 10px;
+  width: 120px;
+  height: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+  background-color: #5C7599E8;
+  }
+
+
+.my-tasks-list,
+.search_results,
+.project-list,
+.project-detail {
+  background-color: #5C7599E8;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  max-width: 800px;
+  padding: 2em;
+  }
+
+.my-tasks-list th,
+.my-tasks-list td,
+.add-note th,
+.project-list th,
+.project-list td,
+.project-detail th,
+.project-detail td {
+  padding: .5em;
+}
+
+
+.my-tasks-list thead tr th,
+.search_results thead tr th,
+.add-note thead tr th,
+.project-list thead tr th,
+.project-detail thead tr th {
+  border-bottom: 2px solid Black;
+}
+
+
+.my-tasks-list  tbody td:nth-child(2),
+.my-tasks-list  tbody td:nth-child(3),
+.my-tasks-list tbody td:nth-child(4),
+.project-list tbody tr td,
+.project-detail tbody td:nth-child(2),
+.project-detail tbody td:nth-child(3),
+.project-detail tbody td:nth-child(4),
+.project-detail tbody td :nth-child(5) {
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.my-tasks-list tbody :not(tr:last-child) td,
+.project-list tbody :not(tr:last-child) td,
+.project-detail tbody :not(tr:last-child) td {
+  border-bottom: 1px solid black;
+}

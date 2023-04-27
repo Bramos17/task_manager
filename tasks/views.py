@@ -23,3 +23,16 @@ def show_my_tasks(request):
     show_my_tasks = Task.objects.filter(assignee=request.user)
     context = {"show_my_tasks": show_my_tasks}
     return render(request, "tasks/show_my_tasks.html", context)
+
+
+@login_required
+def add_notes(request):
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("home")
+    else:
+        form = TaskForm()
+    context = {"form": form}
+    return render(request, "tasks/add_notes.html", context)

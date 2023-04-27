@@ -29,3 +29,18 @@ def Create_project(request):
         form = ProjectForm()
     context = {"form": form}
     return render(request, "projects/create_project.html", context)
+
+
+@login_required
+def search_projects(request):
+    query = request.GET.get('q')
+    if query:
+        list_projects = Project.objects.filter(name__icontains=query).values(
+            "name",
+            "description",
+            "owner__username",
+        )
+    else:
+        list_projects = Project.objects.none()
+    context = {"list_projects": list_projects}
+    return render(request, 'projects/search_results.html', context)

@@ -18,3 +18,4 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
+    notes = models.TextField(null=True)
