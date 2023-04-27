@@ -6,8 +6,7 @@
             <h1>Add Note to Task {{ task.name }}</h1>
             <form method="post">
                 {% csrf_token %}
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes"></textarea>
+                {{ form.as_p }}
                 <button>Add Note</button>
             </form>
         </div>

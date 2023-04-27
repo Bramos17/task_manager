@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main>
+        <div class="delete_task">
+            <h1>Confirm Delete</h1>
+            <p>Are you sure you want to delete this task?</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.start_date }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>{{ task.is_completed|yesno:"yes, no" }}</td>
+                        <td>
+                            <ul>
+                                {% for note in task.notes.all %}
+                                    <ul>
+                                        {{ note.text }}
+                                    </ul>
+                                {% empty %}
+                                    <ul>
+                                        No notes found.
+                                    </ul>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <form method="post">
+                {% csrf_token %}
+                <div class="delete-button">
+                    <button>Delete</button>
+                </div>
+                <div class="cancel-button">
+                    <button>
+                        <a href="{% url 'task_detail' task.id %}"></a> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+{% endblock content %}

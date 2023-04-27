@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <main>
-    <div class="search_results">
-      <h1>Search Results</h1>
-      {% if list_projects %}
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Number of tasks</th>
-              <th>Tasks Completed</th>
-              <th>Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for project in list_projects %}
-              <tr>
-                <td>{{ project.name }} </td>
-                <td>{{ project.tasks.all|length }}</td>
-                <td>{{ project.tasks_completed }}</td>
-                <td>{{ project.owner }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      {% else %}
-        <p>No results found.</p>
-      {% endif %}
-    </div>
-  </main>
+    <main>
+        <div class="search_results">
+            <h1>Search Results</h1>
+            {% if list_projects %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of tasks</th>
+                            <th>Tasks Completed</th>
+                            <th>Owner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in list_projects %}
+                            <tr>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.tasks.all|length }}</td>
+                                <td>{{ project.tasks_completed }}</td>
+                                <td>{{ project.owner }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </div>
+    </main>
 {% endblock content %}

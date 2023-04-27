@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main>
+        <div class="task_detail">
+            <p>
+                <a href="{% url 'edit_task' task.id %}">Edit Task</a>
+                <a href="{% url 'delete_task' task.id %}">Delete Task</a>
+            </p>
+            <h1>{{ task.name }}</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.start_date }}</td>
+                        <td>{{ task.due_date }}</td>
+                        <td>{{ task.is_completed|yesno:"yes, no" }}</td>
+                        <td>
+                            <ul>
+                                {% for note in task.notes.all %}
+                                    <ul>
+                                        {{ note.text }}
+                                    </ul>
+                                {% empty %}
+                                    <ul>
+                                        No notes found.
+                                    </ul>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock content %}

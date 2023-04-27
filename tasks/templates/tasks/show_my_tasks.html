@@ -6,7 +6,7 @@
             <h1>My Tasks</h1>
             {% if show_my_tasks %}
                 <p>
-                    <a href="{% url 'add_notes' %}">Add Notes</a>
+                    <a href="{% url 'add_note' %}">Add Notes</a>
                 </p>
                 <table>
                     <thead>
@@ -21,7 +21,9 @@
                     <tbody>
                         {% for task in show_my_tasks %}
                             <tr>
-                                <td>{{ task.name }}</td>
+                                <td>
+                                    <a href="{% url 'task_detail' task.id %}">{{ task.name }}</a>
+                                </td>
                                 <td>{{ task.start_date }}</td>
                                 <td>{{ task.due_date }}</td>
                                 <td>{{ task.is_completed|yesno:"yes, no" }}</td>

@@ -18,4 +18,13 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
-    notes = models.TextField(null=True)
+    notes = models.TextField(default="", blank=True)
+
+
+class Note(models.Model):
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        related_name="task_note",
+    )
+    notes = models.CharField(max_length=1000)

@@ -9,6 +9,7 @@ body, input, textarea, button, select {
   text-decoration: none;
 }
 
+
 html, body {
     background: url(https://cdn.wallpapersafari.com/46/78/FkSXUz.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -24,9 +25,11 @@ header nav ul {
   list-style: none;
   margin-top: 0;
   margin-right: 0;
-  margin-bottom: 5;
-  padding: 0 0 0 1em;
+  margin-bottom: 0;
+  padding: 0 10px 10px 16px;
+
 }
+
 main {
 
   margin: 100px auto;
@@ -46,19 +49,19 @@ input {
   height: 1.5em;
   margin: 0;
   padding: .25em .5em;
-  background-color:#5C7599C6;
+  background-color:white;
   border: 1px solid black;
 }
 
 select {
   height: 2.5em;
-  background-color:#5C7599C6;
+  background-color:white;
   border: 1px solid black;
 }
 
 select[multiple] {
   height: 7.5em;
-  background-color:#5C7599C6;
+  background-color:white;
   border: 1px solid black;
 }
 
@@ -66,12 +69,13 @@ select[multiple] {
 textarea {
   margin: 0;
   padding: .25em .5em;
-  background-color:#5C7599C6;
+  background-color:white;
   border: 1px solid black;
 }
 
 table {
   width: 100%;
+  padding-bottom: 20px;
 }
 
 label {
@@ -83,7 +87,7 @@ p a {
   font-style: italic;
   font-size: 16px;
   margin: 0;
-  padding: 0;
+  padding-right: 5px;
   text-decoration: none;
 }
 a {
@@ -94,6 +98,12 @@ a {
   padding: 0;
   text-decoration: none;}
 
+.search {
+  position:absolute;
+  top: 10px;
+  right: 15px;
+
+}
 .helptext {
   display: block;
   font-size: 80%;
@@ -109,8 +119,13 @@ a {
   padding: 2em;
 }
 
+
 .task-form,
 .add-note,
+.edit_task,
+.edit_project,
+.delete_project,
+.delete_task,
 .project-form {
   background-color: #5C7599C6;
   border-radius: 4px;
@@ -121,6 +136,11 @@ a {
 }
 
 .task-form h1,
+.task_detail h1,
+.edit_task h1,
+.edit_project h1,
+.delete_project h1,
+.delete_task h1,
 .search_results h1,
 .add-note h1,
 .login-form h1,
@@ -138,6 +158,9 @@ a {
 
 .task-form p,
 .add-note p,
+.edit_task p,
+.task_detail p,
+.edit_project p,
 .login-form p,
 .signup-form p,
 .project-form p {
@@ -147,6 +170,13 @@ a {
   grid-template-columns: 100px 1fr;
 }
 
+.delete_task p,
+.delete_project p {
+  text-align: center;
+  color: rgb(170, 0, 0);
+  font-size: x-large;
+
+}
 
 .task-form p .helptext,
 .login-form p .helptext,
@@ -156,9 +186,28 @@ a {
   grid-column-end: 3;
 }
 
+.delete-button button{
+  padding: 0.25em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: rgb(170, 0, 0);
+  font-size: 18px;
+  border-radius: 10px;
+  width: 120px;
+  height: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+  background-color: #0236077F;
+}
 
 .task-form button,
+.cancel-button button,
 .search button,
+.edit_task button,
+.edit_project button,
 .my-tasks-list button,
 .login-form button,
 .signup-form button,
@@ -177,13 +226,18 @@ a {
   height: 20px;
   font-weight: bold;
   transition: 0.3s;
-  background-color: #5C7599E8;
+  background-color: #0236077F;
   }
 
 
 .my-tasks-list,
+.task_detail,
+.edit_task
+.delete_task,
+.delete_project,
 .search_results,
 .project-list,
+.edit_project,
 .project-detail {
   background-color: #5C7599E8;
   border-radius: 4px;
@@ -195,7 +249,12 @@ a {
 
 .my-tasks-list th,
 .my-tasks-list td,
+.task_detail th,
+.edit_task th
+.delete_task th,
 .add-note th,
+.edit_project th,
+.delete_project th,
 .project-list th,
 .project-list td,
 .project-detail th,
@@ -205,8 +264,13 @@ a {
 
 
 .my-tasks-list thead tr th,
+.task_detail thead tr th,
+.edit_task thead tr th,
+.delete_task thead tr th,
 .search_results thead tr th,
 .add-note thead tr th,
+.edit_project thead tr th,
+.delete_project thead tr th,
 .project-list thead tr th,
 .project-detail thead tr th {
   border-bottom: 2px solid Black;
@@ -217,6 +281,11 @@ a {
 .my-tasks-list  tbody td:nth-child(3),
 .my-tasks-list tbody td:nth-child(4),
 .project-list tbody tr td,
+.task_detail tbody tr td,
+.edit_task tbody tr td,
+.delete_task tbody tr td,
+.edit_project tbody tr td,
+.delete_project tbody tr td,
 .project-detail tbody td:nth-child(2),
 .project-detail tbody td:nth-child(3),
 .project-detail tbody td:nth-child(4),
@@ -227,7 +296,12 @@ a {
 
 
 .my-tasks-list tbody :not(tr:last-child) td,
+.task_detail tbody :not(tr:last-child) td,
+.edit_task tbody :not(tr:last-child) td,
+.delete_task tbody :not(tr:last-child) td,
 .project-list tbody :not(tr:last-child) td,
+.edit_project tbody :not(tr:last-child) td,
+.delete_project tbody :not(tr:last-child) td,
 .project-detail tbody :not(tr:last-child) td {
   border-bottom: 1px solid black;
 }

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from projects.models import Project
 from django.contrib.auth.decorators import login_required
 from projects.forms import ProjectForm
@@ -33,7 +33,7 @@ def Create_project(request):
 
 @login_required
 def search_projects(request):
-    query = request.GET.get('q')
+    query = request.GET.get("q")
     if query:
         list_projects = Project.objects.filter(name__icontains=query).values(
             "name",
@@ -43,4 +43,28 @@ def search_projects(request):
     else:
         list_projects = Project.objects.none()
     context = {"list_projects": list_projects}
-    return render(request, 'projects/search_results.html', context)
+    return render(request, "projects/search_results.html", context)
+
+
+@login_required
+def edit_project(request, id):
+    project = get_object_or_404(Project, id=id)
+    if request.method == "POST":
+        form = ProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect("list_projects")
+    else:
+        form = ProjectForm(instance=project)
+    context = {"form": form}
+    return render(request, "projects/edit_project.html", context)
+
+
+@login_required
+def delete_project(request, id):
+    project = get_object_or_404(Project, id=id)
+    if request.method == "POST":
+        project.delete()
+        return redirect("list_projects")
+    context = {"project": project}
+    return render(request, "projects/delete_project.html", context)
